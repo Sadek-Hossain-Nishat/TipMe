@@ -28,26 +28,31 @@ def tip():
 
 
 
-@app.route('/login',methods=['GET'])
+@app.route('/login',methods=['POST','GET'])
 def login():
-    if request.method=='GET':
+    if request.method=='POST':
         email = request.form.get('email')
         password = request.form.get('psw')
-        mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="1234",
-            database="tipme"
-        )
 
-        mycursor = mydb.cursor()
+        print(email)
+        print(password)
+        return redirect(url_for('tip'))
+    # mydb = mysql.connector.connect(
+    #     host="localhost",
+    #     user="root",
+    #     password="1234",
+    #     database="tipme"
+    # )
+    #
+    # mycursor = mydb.cursor()
+    #
+    # sql = "SELECT * FROM accounts WHERE email ='"+email+"'"
+    #
+    # mycursor.execute(sql)
 
-        sql = "SELECT * FROM accounts WHERE email ='"+email+"'"
+    # myresult = mycursor.fetchone()
+    # print(myresult)
 
-        mycursor.execute(sql)
-
-        myresult = mycursor.fetchone()
-        print(myresult)
 
     return render_template("login.html")
 
@@ -84,6 +89,9 @@ def signup():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('psw')
+
+        print(email)
+        print(password)
 
         confirm_password = request.form.get('psw-repeat')
 
