@@ -110,7 +110,7 @@ input[id=text1]:focus, input[type=password]:focus {
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
     <a href="#home">
-    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/logo.png" alt="logo"> </a>
+    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/" alt="logo"> </a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small" style="width: 40%">
       <a href="{{ url_for('signup') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Sign Up</a>
@@ -135,7 +135,7 @@ input[id=text1]:focus, input[type=password]:focus {
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-<form class="modal-content"  style="border-radius: 20px" method="post">
+<form class="modal-content" action="/action_page.php" style="border-radius: 20px">
   <div class="w3-center container" style="padding: 16px;">
     <h1>Login</h1>
     <p>Login into your account</p>
@@ -149,13 +149,11 @@ input[id=text1]:focus, input[type=password]:focus {
     <p class="w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s">Forgot Password?</p>
 
     <div>
-      <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 45%; border-radius: 12px; position:abosolute;">Sign Up</button>
+      <button class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 45%; border-radius: 12px; position:abosolute;">Sign Up</button>
     </div>
 
   </div>
 </form>
-
-{% block content %}{% endblock %}
 
 <script>
   // Toggle between showing and hiding the sidebar when clicking the menu icon
