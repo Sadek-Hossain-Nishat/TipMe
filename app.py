@@ -25,6 +25,18 @@ def tip():
 def login():
     return render_template("login.html")
 
+@app.route('/next1')
+def next1():
+    return render_template("next1.html")
+
+@app.route('/next2')
+def next2():
+    return render_template("next2.html")
+
+@app.route('/next3')
+def next3():
+    return render_template("next3.html")
+
 @app.route('/signup')
 def signup():
     return render_template("signup.html")
