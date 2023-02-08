@@ -3,7 +3,7 @@
 <head>
 <title>
   {% block title %}
-
+    Signup Page
   {% endblock %}
 </title>
 <meta charset="UTF-8">
@@ -17,14 +17,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
   height: 100%;
   line-height: 1.8;
+  background-color: w3-pale-green;
 }
 
 .w3-bar {
   padding: 10px;
-}
-
-hr.new {
-  border-top: 1px solid green;
 }
 
 /* Modal Content/Box */
@@ -32,9 +29,11 @@ hr.new {
   background-color: #fefefe;
   margin: 10% auto 20% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 35%; /* Could be more or less, depending on screen size */
-  height: 80%;
+  height: 65%;
   padding: 40px;
+}
+hr.new {
+  border-top: 1px solid green;
 }
 form.form {
   width: 600px;
@@ -111,24 +110,6 @@ input[id=text1]:focus, input[type=password]:focus {
 </style>
 </head>
 <body>
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home">
-    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/" alt="logo"> </a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small" style="width: 40%">
-      <a href= "{{ url_for('signup') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Sign Up</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;">About</a>
-      <a href="#team" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Explore</a>
-      <a href="#work" class="w3-bar-item w3-button w3-hover-text-green w3-green" style="transition-duration: 0.6s; text-color:white; border-radius: 25px"> Login</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
 
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
@@ -139,25 +120,37 @@ input[id=text1]:focus, input[type=password]:focus {
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-<form class="modal-content w3-border-0" action="/action_page.php" style="border-radius: 20px; background-color: #E5E4E2">
-  <div class="w3-center container" style="padding: 16px;">
-    <h1><strong>Login</strong></h1>
-    <p><strong>Login into your account</strong></p>
-    <hr class="new">
-    <input type="text" id="text1" placeholder="Enter Email" name="email" required style="border-radius: 12px">
-    <input type="password" placeholder="Enter Password" name="psw" required style="border-radius: 12px"><br/>
 
-    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"><strong> Remember me</strong>
+  <div class="modal-content w3-center w3-light-grey w3-border-0" style="width:35%; border-radius: 20px; padding: 16px;">
+    <div class="w3-center container" style="padding: 16px;">
+      <a href="#home">
+      <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/logo.png" alt="logo"> </a>
+      <p><strong>How do you intend to earn on TipMe?</strong></p>
+      <hr class="new">
+      <fieldset style="border-radius: 20px; padding: 16px; margin-bottom:13px">
+        <div class="w3-left">
+          <input type="checkbox" id="scales" name="scales" style="margin: 0.4rem; accent-color: orange">
+          <label for="scales"><strong>Receive gifts or tips</strong> </label>
+        </div>
+      </fieldset>
+      <fieldset style="border-radius: 20px; padding: 16px; margin-bottom:13px">
+        <div class="w3-left">
+          <input type="checkbox" id="offer" name="scales" style="margin: 0.4rem; accent-color: orange">
+          <label for="scales"><strong>Offer services</strong> </label>
+        </div>
+      </fieldset>
+      <fieldset style="border-radius: 20px; padding: 16px; margin-bottom:15px">
+        <div class="w3-left">
+          <input type="checkbox" id="sell" name="scales" style="margin: 0.4rem; accent-color: orange">
+          <label for="scales"><strong>Sell your products (physical or digital)</strong> </label>
+        </div>
+      </fieldset>
 
-
-    <p class="w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s"><strong>Forgot Password?</strong></p>
-
-    <div>
-      <button class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 45%; border-radius: 12px; position:abosolute;">Sign Up</button>
+      <a href="{{ url_for('next2') }}"><button class="w3-button w3section w3-green w3-margin-bottom" type="submit" onclick="{{ url_for('next1') }}" style="text-color:white; width: 100%; border-radius: 12px; position:abosolute;">Continue</button></a>
     </div>
-
   </div>
-</form>
+
+
 
 <script>
   // Toggle between showing and hiding the sidebar when clicking the menu icon

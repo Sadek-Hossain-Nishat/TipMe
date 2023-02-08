@@ -3,7 +3,7 @@
 <head>
 <title>
   {% block title %}
-
+    Signup Page
   {% endblock %}
 </title>
 <meta charset="UTF-8">
@@ -17,14 +17,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
   height: 100%;
   line-height: 1.8;
+  background-color: w3-pale-green;
 }
 
 .w3-bar {
   padding: 10px;
-}
-
-hr.new {
-  border-top: 1px solid green;
 }
 
 /* Modal Content/Box */
@@ -32,9 +29,11 @@ hr.new {
   background-color: #fefefe;
   margin: 10% auto 20% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 35%; /* Could be more or less, depending on screen size */
-  height: 80%;
+  height: 60%;
   padding: 40px;
+}
+hr.new {
+  border-top: 1px solid green;
 }
 form.form {
   width: 600px;
@@ -50,11 +49,30 @@ input[id=text1], input[type=password] {
   radius: 10px;
 }
 
+.box{
+  width: 90%;
+  padding: 20px;
+  height: 90px;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 35px;
+  background-color: light-grey;
+}
+
+input.unique{
+  outline-style: none;
+  font-size: 15px;
+  width: 250px;
+}
+
 /* Add a background color when the inputs get focus */
 input[id=text1]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
   border-style: solid;
+}
+
+span.tan{
+  font-size: 15px;
 }
 
 @media only screen and (min-width: 300px) and (max-width: 1250px) {
@@ -111,24 +129,6 @@ input[id=text1]:focus, input[type=password]:focus {
 </style>
 </head>
 <body>
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home">
-    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/" alt="logo"> </a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small" style="width: 40%">
-      <a href= "{{ url_for('signup') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Sign Up</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;">About</a>
-      <a href="#team" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Explore</a>
-      <a href="#work" class="w3-bar-item w3-button w3-hover-text-green w3-green" style="transition-duration: 0.6s; text-color:white; border-radius: 25px"> Login</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
 
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
@@ -139,25 +139,31 @@ input[id=text1]:focus, input[type=password]:focus {
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-<form class="modal-content w3-border-0" action="/action_page.php" style="border-radius: 20px; background-color: #E5E4E2">
-  <div class="w3-center container" style="padding: 16px;">
-    <h1><strong>Login</strong></h1>
-    <p><strong>Login into your account</strong></p>
-    <hr class="new">
-    <input type="text" id="text1" placeholder="Enter Email" name="email" required style="border-radius: 12px">
-    <input type="password" placeholder="Enter Password" name="psw" required style="border-radius: 12px"><br/>
 
-    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"><strong> Remember me</strong>
+  <div class="modal-content w3-center w3-light-grey w3-border-0" style="width:35%; border-radius: 20px; padding: 16px;">
+    <div class="w3-center container" style="padding: 16px;">
+      <a href="#home">
+      <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/logo.png" alt="logo"> </a>
+      <h4><strong>Create a username</strong></h4>
+      <p>Your username will be your unique Tip-me link</p>
+      <hr class="new">
+      <fieldset style="background-color: #E5E4E2; border-radius: 20px; padding: 16px; margin-bottom:15px">
+        <form class="lum w3-left" autocomplete="on" name="sign-up-form">
+          <span class="tan"><b>Tipme.com/</b></span><input class="unique w3-border-0 w3-opacity" type="text" placeholder="" style="background-color: #E5E4E2">
+        </form>
+      </fieldset>
+      <fieldset class="w3-border-0" style="background-color: #E5E4E2; border-radius: 20px; padding: 16px; margin-bottom:13px">
+        <div class="w3-left">
+          <label>&#128161;     |     Your username can be changed from time to time</label>
+        </div>
+      </fieldset>
 
 
-    <p class="w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s"><strong>Forgot Password?</strong></p>
-
-    <div>
-      <button class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 45%; border-radius: 12px; position:abosolute;">Sign Up</button>
+      <a href="{{ url_for('next3') }}"><button class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 100%; border-radius: 12px; position:abosolute;">Continue</button></a>
     </div>
-
   </div>
-</form>
+
+
 
 <script>
   // Toggle between showing and hiding the sidebar when clicking the menu icon
