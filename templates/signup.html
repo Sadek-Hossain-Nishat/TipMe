@@ -1,4 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}
-    Signup Page
+Signup Page
+{% endblock %}
+
+{% block content %}
+{% with errors = get_flashed_messages(category_filter=["error"]) %}
+{% if errors %}
+<div class="alert-message block-message error">
+
+
+    {%- for msg in errors %}
+    <div style="color:red;font-weight: bold;">{{ msg }}</div>
+    {% endfor -%}
+
+</div>
+{% endif %}
+{% endwith %}
 {% endblock %}

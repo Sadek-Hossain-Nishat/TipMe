@@ -115,7 +115,7 @@ input[id=text1]:focus, input[type=password]:focus {
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
     <a href="#home">
-    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/" alt="logo"> </a>
+    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/logo.png" alt="logo"> </a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small" style="width: 40%">
       <a href="{{ url_for('signup') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Sign Up</a>
@@ -140,19 +140,25 @@ input[id=text1]:focus, input[type=password]:focus {
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
-<form class="modal-content w3-border-0" action="{{ url_for('next1') }}" style="border-radius: 20px; background-color: #E5E4E2">
+<form class="modal-content w3-border-0"  style="border-radius: 20px; background-color: #E5E4E2" method="post">
   <div class="w3-center container" style="padding: 16px;">
     <h1><strong>Sign Up</strong></h1>
     <p><strong>Sign Up to create an account.</strong></p>
     <hr class="new">
-    <input type="text" id="text1" placeholder="Enter Email" name="email" required style="border-radius: 12px">
+    <input type="text" id="text1" placeholder="Enter Email" name="email"  required style="border-radius: 12px">
     <input type="password" placeholder="Enter Password" name="psw" required style="border-radius: 12px">
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required style="border-radius: 12px">
+    <div>
+
+      {% block content %}{% endblock %}
+
+    </div>
+
     <div>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"><strong> Remember me</strong>
     </div>
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-    <a href="{{ url_for('next1') }}"><button class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 45%; border-radius: 12px; position:abosolute;">Sign Up</button></a>
+    <button class="w3-button w3section w3-green w3-margin-bottom" type="submit" style="text-color:white; width: 45%; border-radius: 12px; position:abosolute;">Sign Up</button>
   </div>
 </form>
 

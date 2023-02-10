@@ -191,10 +191,10 @@ form.form {
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
     <a href="#home">
-    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/" alt="logo"> </a>
+    <img class="w3-bar-item w3-hover-none w3-button" style="width: 70px; padding: 3px" src="/static/uploads/logo.png" alt="logo"> </a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small" style="width: 40%">
-      <a href='#' class="w3-bar-item w3-button w3-hover-text-green w3-green" onclick="document.getElementById('id01').style.display='block'" style="transition-duration: 0.6s; text-color:white; border-radius: 25px"> Sign Up</a>
+      <a href='/signup' class="w3-bar-item w3-button w3-hover-text-green w3-green" onclick="document.getElementById('id01').style.display='block'" style="transition-duration: 0.6s; text-color:white; border-radius: 25px"> Sign Up</a>
       <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;">About</a>
       <a href="#team" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Explore</a>
       <a href="{{ url_for('login') }}" class="w3-bar-item w3-button w3-hover-none w3-hover-text-green" style="transition-duration: 0.6s;"> Login</a>
@@ -218,7 +218,7 @@ form.form {
 </nav>
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content w3-border-0" action="/action_page.php" style="border-radius: 20px; background-color: #E5E4E2">
+  <form class="modal-content w3-border-0"  style="border-radius: 20px; background-color: #E5E4E2">
     <div class="w3-center container" style="padding: 16px;">
       <h1>Sign Up</h1>
       <p>Sign Up to create an account.</p>
